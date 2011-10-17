@@ -1,5 +1,4 @@
 # Django settings for PairStairs project.
-
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 

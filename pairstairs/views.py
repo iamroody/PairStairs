@@ -8,3 +8,4 @@ def index(request):
         'programmers': programmers,
         'pairs': pairs,
         })
+
