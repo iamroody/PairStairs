@@ -27,3 +27,12 @@ class TestPairStairs(TestCase):
         for name in NAMES:
             print Programmer.objects.filter(name=name)
             self.assertEqual(Programmer.objects.filter(name=name).count(), 1)
+
+    def test_should_update_count_of_pair(self):
+        programmer1 = Programmer(name='Jason')
+        programmer2 = Programmer(name='David')
+        programmer1.save()
+        programmer2.save()
+        Client().get("/pairstairs/2/1")
+        pair = Pair.objects.get(programmer_1=programmer2, programmer_2=programmer1)
+        self.assertEqual(1, pair.count)
