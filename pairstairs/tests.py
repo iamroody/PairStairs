@@ -4,9 +4,9 @@ when you run "manage.py test".
 
 Replace this with more appropriate tests for your application.
 """
+from unittest.case import TestCase
+from models import Programmer, Pair
 
-from django.test import TestCase
-from pairstairs.models import Programmer, Pair
 
 class ModelTest(TestCase):
     def add_programmer(self):
@@ -28,6 +28,6 @@ class ModelTest(TestCase):
         self.assertEqual(Programmer.objects.all().count(),3)
 
     def test_return_count_1_when_programmer1_pair_with_programmer2(self):
-        Pair.make_pair(self.programmer_1, self.programmer_2)
-        self.assertEqual(self.get_pair_count(self.programmer_1, self.programmer_2), 1)
+        pair = Pair()
+        pair.make_pair(self.programmer_1, self.programmer_2)
 

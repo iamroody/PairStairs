@@ -1,15 +1,16 @@
-import string
 from django.db import models
-
 # Create your models here.
+from django.db.models.fields import CharField, IntegerField, DateTimeField
+from django.db.models.fields.related import ForeignKey
+
 class Programmer(models.Model):
-    name = models.fields.CharField(max_length=200)
+    name = CharField(max_length=200)
 
 class Pair(models.Model):
-    programmer_1 = models.ForeignKey(Programmer, related_name="programmer_1")
-    programmer_2 = models.ForeignKey(Programmer, related_name="programmer_2")
-    count = models.fields.IntegerField(default=0)
-    last_time = models.fields.DateTimeField(auto_now=True)
+    programmer_1 = ForeignKey(Programmer, related_name="programmer_1")
+    programmer_2 = ForeignKey(Programmer, related_name="programmer_2")
+    count = IntegerField(default=0)
+    last_time = DateTimeField(auto_now=True)
 
     def switch_programmer(self, programmer, another_programmer):
         if programmer.id > another_programmer.id:
