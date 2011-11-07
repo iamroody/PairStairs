@@ -6,7 +6,7 @@
             <p class="warning_message">There are not enough programmers (less than 2) to create stairs</p>
             <p><a href="/pairstairs/add" class="btn primary large">Add Programmer &raquo;</a></p>
         {% else %}
-            <table class="zebra-striped" id="sortTable">
+            <table class="zebra-striped" id="pair_stairs_table">
                 <thead>
                 <tr>
                     <th></th>
@@ -19,11 +19,12 @@
                 </thead>
                 <tbody>
                 {% for programmer_1 in programmers_for_rows %}
-                    <tr class="row">
+                    <tr>
                         <td class="name"><span class="name">{{ programmer_1.name }}</span></td>
-                        {% for pair in pairs %}
-                            {% if programmer_1 == pair.first %}
-                                <td class="pair">0</td>
+                        {% for pair in pair_matrix %}
+                            {% if programmer_1 == pair.programmer_1 %}
+                                <td class="pair"><a href="/pairstairs/{{ pair.programmer_1.id }}/{{ pair.programmer_2.id }}">{{ pair.count }}</a>
+                                </td>
                             {% endif %}
                         {% endfor %}
                     </tr>

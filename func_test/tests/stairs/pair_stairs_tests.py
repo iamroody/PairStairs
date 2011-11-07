@@ -1,3 +1,4 @@
+from time import sleep
 from nose.plugins.attrib import attr
 from selenium.webdriver.common.by import By
 from framework.basetest import BaseTest
@@ -18,7 +19,9 @@ class TestPairStairs(BaseTest):
         element.send_keys("Angle,Smile")
         self.driver.find_element(By.CSS_SELECTOR, "#add_programmers").click()
 
-        self.driver.find_element(self.driver.title, "Pair Stairs")
+        self.assertEqual(self.driver.title, "Pair Stairs")
         self.assertIsNotNone(self.driver.find_element(By.CSS_SELECTOR,"#pair_stairs_table"))
+
+        
         
         
