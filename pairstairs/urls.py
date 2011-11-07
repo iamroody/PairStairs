@@ -4,5 +4,5 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('pairstairs.views',
-    (r'^$', 'index'),
+    (r'^$', 'stairs'),
 )

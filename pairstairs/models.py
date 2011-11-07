@@ -1,5 +1,4 @@
 from django.db import models
-# Create your models here.
 from django.db.models.fields import CharField, IntegerField, DateTimeField
 from django.db.models.fields.related import ForeignKey
 

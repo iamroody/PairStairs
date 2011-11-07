@@ -4,8 +4,14 @@ when you run "manage.py test".
 
 Replace this with more appropriate tests for your application.
 """
-from unittest.case import TestCase
+from django.test.client import Client
+from django.test.testcases import TestCase
 from models import Programmer, Pair
+
+class TestPairStairs(TestCase):
+    def test_should_render_page_to_pair_stairs_page(self):
+        response = Client().get('/pairstairs/')
+        self.assertEqual(response.status_code, 200)
 
 
 class ModelTest(TestCase):
