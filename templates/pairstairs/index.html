@@ -4,7 +4,33 @@
     <div class="hero-unit">
         {% if programmers.count < 2 %}
             <p class="warning_message">There are not enough programmers (less than 2) to create stairs</p>
-            <p><a href="/pairstairs/add"  class="btn primary large">Add Programmer &raquo;</a></p>
+            <p><a href="/pairstairs/add" class="btn primary large">Add Programmer &raquo;</a></p>
+        {% else %}
+            <table class="zebra-striped" id="sortTable">
+                <thead>
+                <tr>
+                    <th></th>
+                    {% for programmer in programmers_for_columns %}
+                        <th class="column">
+                            <span class='name'>{{ programmer.name }}</span>
+                        </th>
+                    {% endfor %}
+                </tr>
+                </thead>
+                <tbody>
+                {% for programmer_1 in programmers_for_rows %}
+                    <tr class="row">
+                        <td class="name"><span class="name">{{ programmer_1.name }}</span></td>
+                        {% for pair in pairs %}
+                            {% if programmer_1 == pair.first %}
+                                <td class="pair">0</td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
         {% endif %}
     </div>
 {% endblock %}
