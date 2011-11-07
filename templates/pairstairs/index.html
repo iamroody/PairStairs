@@ -2,12 +2,9 @@
 {% block page_title %}Pair Stairs{% endblock %}
 {% block pairstairs %}
     <div class="hero-unit">
-        <h1>Hello, world!</h1>
-
-        <p>Vestibulum id ligula porta felis euismod semper. Integer posuere erat a ante venenatis dapibus posuere
-            velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem
-            nec elit.</p>
-
-        <p><a class="btn primary large">Learn more &raquo;</a></p>
+        {% if programmers.count < 2 %}
+            <p class="warning_message">There are not enough programmers (less than 2) to create stairs</p>
+            <p><a href="/add"  class="btn primary large">Add Programmer &raquo;</a></p>
+        {% endif %}
     </div>
 {% endblock %}
