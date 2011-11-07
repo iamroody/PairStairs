@@ -5,4 +5,5 @@ admin.autodiscover()
 
 urlpatterns = patterns('pairstairs.views',
     (r'^$', 'stairs'),
+    (r'^add$', 'add'),
 )

@@ -11,4 +11,11 @@ class TestPairStairs(BaseTest):
         message = self.driver.find_element(By.CSS_SELECTOR,".warning_message").text
         self.assertEqual(message, "There are not enough programmers (less than 2) to create stairs")
 
+    @attr("function_test")
+    def test_should_add_new_programmer_to_pair_stairs(self):
+        self.driver.get(url('/pairstairs/add'))
+        element = self.driver.find_element(By.CSS_SELECTOR, "#programmer_names")
+        element.send_keys("Angle")
+        self.driver.find_element(By.CSS_SELECTOR, "add_programmers").click()
+        
         

@@ -1,0 +1,13 @@
+{% extends "site.html" %}
+{% block page_title %}Add a new pair{% endblock %}
+{% block pairstairs %}
+    <div class="hero-unit">
+        <form method="POST">
+            {% csrf_token %}
+            <p>Add a new pair here, you can use ',' as separator to add more pairs one time</p>
+            <textarea id="programmer_names" name='programmer_names' class='xxlarge'></textarea>
+            <br><br>
+            <input id="add_programmers" class="btn primary" type='submit'/>
+        </form>
+    </div>
+{% endblock %}
