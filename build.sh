@@ -20,6 +20,7 @@ function unit_test {
 
 function function_test {
     echo "--------start to run all function tests--------"
+    cp local_settings.py func_test/resources/local_settings.py
     cd func_test
     nosetests -a "function_test" --with-progressive
     cd ..

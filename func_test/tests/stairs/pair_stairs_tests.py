@@ -2,6 +2,7 @@ from time import sleep
 from nose.plugins.attrib import attr
 from selenium.webdriver.common.by import By
 from framework.basetest import BaseTest
+from framework.database.sqlite_db_manager import DataBaseManager
 from framework.utils.utils import url
 
 class TestPairStairs(BaseTest):
@@ -22,6 +23,3 @@ class TestPairStairs(BaseTest):
         self.assertEqual(self.driver.title, "Pair Stairs")
         self.assertIsNotNone(self.driver.find_element(By.CSS_SELECTOR,"#pair_stairs_table"))
 
-        
-        
-        
