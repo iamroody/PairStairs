@@ -21,7 +21,7 @@ function unit_test {
 function function_test {
     echo "--------start to run all function tests--------"
     cd func_test
-    nosetests -a --with-progressive
+    nosetests -a "function_test" --with-progressive
     cd ..
 }
 
