@@ -34,4 +34,10 @@ class TestPairStairs(BaseTest):
         self.assertEqual('0', pair_count.text)
         pair_count.click()
         self.assertEqual('1', pair_count.text)
-    
+
+    @attr("function_test")
+    def test_should_remove_all_info_of_stairs(self):
+        self.prepare_pair_data()
+        self.driver.get(url('/pairstairs/reset'))
+        message = self.driver.find_element(By.CSS_SELECTOR,".warning_message").text
+        self.assertEqual(message, "There are not enough programmers (less than 2) to create stairs")

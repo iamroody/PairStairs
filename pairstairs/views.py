@@ -25,6 +25,11 @@ def stairs(request):
              'programmers_for_columns': programmers_list[0:-1],
              'programmers_for_rows': programmers_list[1:]}))
 
+def reset(request):
+    Pair.objects.all().delete()
+    Programmer.objects.all().delete()
+    return redirect(stairs)
+
 def add(request):
     if request.method == 'POST':
         names = request.POST['programmer_names'].split(',')
