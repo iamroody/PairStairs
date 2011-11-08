@@ -14,7 +14,7 @@ EOF
 function unit_test {
     echo "--------start to run all unit tests--------"
     cd pairstairs
-    nosetests
+    nosetests --logging-clear-handlers --with-progressive
     cd ..
 }
 
@@ -22,7 +22,7 @@ function function_test {
     echo "--------start to run all function tests--------"
     cp local_settings.py func_test/resources/local_settings.py
     cd func_test
-    nosetests -a "function_test" --with-progressive
+    nosetests -a "function_test" --with-progressive --logging-clear-handlers
     cd ..
 }
 

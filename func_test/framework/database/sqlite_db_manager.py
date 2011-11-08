@@ -1,9 +1,13 @@
 import sqlite3
 import os
 
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-DB_FILE = os.path.join(PROJECT_ROOT, 'pairstairs.db')
+try:
+    from resources.local_settings import DATABASES
+except Exception as e:
+    print "local_settings file is not available"
 
+#TODO find the path, I just hard code here, need to replace in future
+DB_FILE = '/Users/twer/twu/Django/PairStairs/pairstairs.db'
 
 class DataBaseManager(object):
     def get_connections(self, database_name=DB_FILE):
@@ -15,8 +19,8 @@ class DataBaseManager(object):
         try:
             con = self.get_connections()
             cur = con.cursor()
-            cur.execute('delete from programmer')
-            cur.execute('delete from pair')
+            cur.execute('delete from pairstairs_programmer')
+            cur.execute('delete from pairstairs_pair')
             con.commit()
         finally:
             if cur:
