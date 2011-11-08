@@ -1,0 +1,4 @@
+1. you should run ./setup.sh to install necessary library
+2. ./build.sh ft  -- for function test
+3. ./build.sh ut  -- for unit test, :( ,have no idea why it fails...., but it works well in IDE.
+4. ./build.sh run -- for run server
